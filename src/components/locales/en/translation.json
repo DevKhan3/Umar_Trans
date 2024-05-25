@@ -1,13 +1,10 @@
 {
-  "Header": {
-      "home": "Home",
-      "about": "About",
-      "services": "Services",
-      "contact": "Contact"
-  },
-  "HeroSection": {
-    "title": "A Complete Farming Solution",
-    "desc": "A Machine Learning Casesd Crop Disease Diagnosis Tool.",
-    "button": "Discover More"
-  }
+  "home": "Home",
+  "about": "About",
+  "services": "Services",
+  "contact": "Contact",
+
+  "title": "A Complete Farming Solution",
+  "desc": "A Machine Learning Casesd Crop Disease Diagnosis Tool.",
+  "btn": "Discover More"
 }

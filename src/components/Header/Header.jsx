@@ -13,9 +13,10 @@ const Header = () => {
   };
 
   const { t, i18n } = useTranslation();
+
   const changeLanguage = (e) => {
-    const selectedLanguage = e.target.value;
-    i18n.changeLanguage(selectedLanguage);
+    const lng = e.target.value;
+    i18n.changeLanguage(lng);
   };
 
   useEffect(() => {
@@ -48,32 +49,24 @@ const Header = () => {
       title: 'Contact Us',
       url: '/contact',
     },
-    // {
-    //   id: 6,
-    //   title: 'Create Account',
-    //   url: '/create-account',
-    // },
   ];
+
   return (
     <>
       <header className='flex items-center justify-between mx-5 my-3 md:mx-10 md:my-3'>
-        {/* Logo */}
         <div>
           <img src={logo} className='size-12' alt='logo' />
         </div>
-        {/* Navigation */}
         <nav>
           <ul className='hidden md:flex md:gap-10'>
             {header.map((item) => (
               <li className='font-semibold text-large' key={item.id}>
-                {/* <a href={item.url}>{item.title}</a> */}
                 <Link to={item.url}>{t(item.title)}</Link>
               </li>
             ))}
           </ul>
         </nav>
 
-        {/* Language */}
         <div className=''>
           <div>
             <select
@@ -81,13 +74,12 @@ const Header = () => {
               onChange={changeLanguage}
               defaultValue={i18n.language}
             >
-              <option value=''>Language</option>
               <option value='en'>English</option>
               <option value='ur'>Urdu</option>
             </select>
           </div>
         </div>
-        {/* Hamburger */}
+
         <div onClick={handleNav} className='z-10 cursor-pointer md:hidden'>
           {nav ? (
             <AiOutlineClose className='text-black' size={30} />
@@ -104,19 +96,17 @@ const Header = () => {
               : 'absolute left-[-100%]'
           }
         >
-          {header.map((item) => {
-            return (
-              <div key={item.id}>
-                <nav className=''>
-                  <ul className='flex gap-10'>
-                    <li className='font-semibold text-large'>
-                      <a href={item.url}>{item.title}</a>
-                    </li>
-                  </ul>
-                </nav>
-              </div>
-            );
-          })}
+          {header.map((item) => (
+            <div key={item.id}>
+              <nav className=''>
+                <ul className='flex gap-10'>
+                  <li className='font-semibold text-large'>
+                    <Link to={item.url}>{t(item.title)}</Link>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          ))}
         </div>
       </header>
     </>

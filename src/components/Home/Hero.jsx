@@ -1,7 +1,7 @@
 import Image from '../../assets/images/hero.png';
 import { useTranslation } from 'react-i18next';
 const Hero = () => {
-  const { t } = useTranslation('HeroSection');
+  const { t } = useTranslation();
   return (
     <>
       <main className='flex md:flex-row flex-col bg-[#2b3d26]'>
@@ -16,11 +16,9 @@ const Hero = () => {
           <h1 className='text-2xl md:text-5xl font-bold text-left md:leading-tight '>
             {t('title')}
           </h1>
-          <p className='text-left text-xl mt-5'>
-            A Machine Learning Casesd Crop Disease Diagnosis Tool.
-          </p>
+          <p className='text-left text-xl mt-5'>{t('desc')}</p>
           <button className='bg-[#7a9e3c] w-fit px-6 py-2 items-center  text-lg rounded-md'>
-            Discover More
+          {t('btn')}
           </button>
         </section>
       </main>
